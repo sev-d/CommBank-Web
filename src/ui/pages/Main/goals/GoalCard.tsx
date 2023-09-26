@@ -9,6 +9,11 @@ import {
 } from '../../../../store/modalSlice'
 import { Card } from '../../../components/Card'
 
+// Import the styled Icon component
+const Icon = styled.h1`
+  font-size: 5.5rem;
+`
+
 type Props = { id: string }
 
 export default function GoalCard(props: Props) {
@@ -25,8 +30,13 @@ export default function GoalCard(props: Props) {
 
   const asLocaleDateString = (date: Date) => new Date(date).toLocaleDateString()
 
+ // modified 
   return (
     <Container key={goal.id} onClick={onClick}>
+      {/* Render the icon using the Icon styled component */}
+      <Icon>{goal.icon}</Icon>
+
+      {/* Rest of the GoalCard component */}
       <TargetAmount>${goal.targetAmount}</TargetAmount>
       <TargetDate>{asLocaleDateString(goal.targetDate)}</TargetDate>
     </Container>
